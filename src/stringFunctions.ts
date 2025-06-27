@@ -38,19 +38,24 @@ export function join(arr: string[], sepparator: string): string {
 export function split(text: string, char: string) : string[] {
     let result: Array<string> = [];
     if (text.length === 0) return result;
-    
-    let word = '';    
+
+    // char array because strings are immutable in javascript
+    // having a string here uses more memmory since a new string
+    // is created each time we append a letter
+    let word = []; 
         
     for(let i = 0; i < text.length; i++) {
 	let isSplit = char === text[i];
-	word += isSplit ? '' : text[i];
+	
 	if (isSplit) {
-	    result.push(word);
-	    word = '';
+	    result.push(join(word, ''));
+	    word = [];
+	} else {
+	    word.push(text[i]);
 	}
     }
     
-    result.push(word);
+    result.push(join(word, ''));
     
     return result;
 }
