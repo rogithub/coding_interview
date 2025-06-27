@@ -1,15 +1,17 @@
-import { split, join } from './stringFunctions';
+import { split, join, join_reduce } from './stringFunctions';
 
 describe('String join', () => {
   describe('join by space', () => {
     it('should join by empty space', () => {
 	expect(join(['join', 'by', 'space'], ' ')).toEqual('join by space');
+	expect(join_reduce(['join', 'by', 'space'], ' ')).toEqual('join by space');
     });
   });
 
   describe('join by space', () => {
     it('should join by ee', () => {
 	expect(join(['b', '', 'k', '', 'p', 'r n', '', 'd', 'd!!'], 'ee')).toEqual('beeeekeeeepeer neeeedeed!!');
+	expect(join_reduce(['b', '', 'k', '', 'p', 'r n', '', 'd', 'd!!'], 'ee')).toEqual('beeeekeeeepeer neeeedeed!!');
     });
   });
 });

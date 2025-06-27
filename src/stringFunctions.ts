@@ -1,5 +1,9 @@
 
-
+export function join_reduce(arr: string[], sepparator: string) {
+    return arr.reduce((result, chunk, i) => {
+	return i === arr.length - 1 ? result + chunk : result + chunk + sepparator
+    }, "");
+}
 
 export function join(arr: string[], sepparator: string): string {
     let result = "";
