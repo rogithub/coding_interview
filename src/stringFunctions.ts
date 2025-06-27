@@ -5,12 +5,12 @@ export function join(arr: string[], sepparator: string): string {
     let result = "";
     if (arr.length === 0) return result;
 
-    for(let i = 0; i < arr.length; i++) {
-	let is_last_chunk = i === arr.length - 1;
+    for(let i = 0; i < arr.length; i++) {	
 	let chunk = arr[i];
-	
 	result += chunk;
-	if (!is_last_chunk) result += sepparator;
+	
+	// cehck if it is last chunk
+	if (i !== arr.length - 1) result += sepparator;
     }
 
     return result;
