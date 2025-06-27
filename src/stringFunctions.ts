@@ -13,30 +13,44 @@ export function index_of(s: string, t: string): number {
     return -1;
 }
 
-export function join_reduce(arr: string[], sepparator: string) {
-    return arr.reduce((result, chunk, i) => {
-	return i === arr.length - 1 ? result + chunk : result + chunk + sepparator
-    }, "");
+export function join_reduce(arr: string[], sepparator: string) : string {
+    // using [] instead of string to collect char(s) see comment bellow.
+    const result: string[] = [];
+
+    arr.reduce((curr, chunk, i) => {
+	curr.push(chunk);
+
+	// if it is not the end
+	if (i !== arr.length - 1) {
+	    curr.push(sepparator);
+	}
+	
+	return curr;
+    }, result);
+
+    return result.join(''); 
+	
 }
 
 export function join(arr: string[], sepparator: string): string {
-    let result = "";
-    if (arr.length === 0) return result;
+    if (arr.length === 0) return '';
+    // using array to store chars as per comment on the next function
+    const result: string[] = [];
 
     for(let i = 0; i < arr.length; i++) {	
-	let chunk = arr[i];
-	result += chunk;
+	const chunk = arr[i];
+	result.push(chunk);
 	
-	// cehck if it is last chunk
-	if (i !== arr.length - 1) result += sepparator;
+	// do not add sepparator in the last chunk
+	if (i !== arr.length - 1) result.push(sepparator);
     }
 
-    return result;
+    return result.join('');
 }
 
 
 export function split(text: string, char: string) : string[] {
-    let result: Array<string> = [];
+    let result: string[] = [];
     if (text.length === 0) return result;
 
     // Char array because strings are immutable in JavaScript.
@@ -46,20 +60,20 @@ export function split(text: string, char: string) : string[] {
 
     // On the opposite hand having an array takes O(1) armonized time per char.
     // So split takes O(len(s)) time total.
-    let word = []; 
+    let word: string[] = []; 
         
     for(let i = 0; i < text.length; i++) {
 	let isSplit = char === text[i];
 	
 	if (isSplit) {
-	    result.push(join(word, ''));
+	    result.push(word.join(''));
 	    word = [];
 	} else {
 	    word.push(text[i]);
 	}
     }
     
-    result.push(join(word, ''));
+    result.push(word.join(''));
     
     return result;
 }
