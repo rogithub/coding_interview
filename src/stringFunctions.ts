@@ -1,4 +1,18 @@
 
+export function index_of(s: string, t: string): number {
+    const substring_length = t.length;
+    
+    for (let i = 0; i < s.length; i++) {
+	if ((i + substring_length) > s.length) return -1;
+
+	
+	if (t === s.substring(i, i + substring_length))
+	    return i;
+    }
+    
+    return -1;
+}
+
 export function join_reduce(arr: string[], sepparator: string) {
     return arr.reduce((result, chunk, i) => {
 	return i === arr.length - 1 ? result + chunk : result + chunk + sepparator
@@ -40,7 +54,5 @@ export function split(text: string, char: string) : string[] {
     
     return result;
 }
-
-
 
 
