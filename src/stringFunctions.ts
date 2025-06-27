@@ -50,7 +50,7 @@ export function join(arr: string[], sepparator: string): string {
 
 
 export function split(text: string, char: string) : string[] {
-    let result: string[] = [];
+    const result: string[] = [];
     if (text.length === 0) return result;
 
     // Char array because strings are immutable in JavaScript.
@@ -63,7 +63,7 @@ export function split(text: string, char: string) : string[] {
     let word: string[] = []; 
         
     for(let i = 0; i < text.length; i++) {
-	let isSplit = char === text[i];
+	const isSplit = char === text[i];
 	
 	if (isSplit) {
 	    result.push(word.join(''));
