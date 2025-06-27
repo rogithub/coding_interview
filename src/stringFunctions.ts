@@ -1,6 +1,22 @@
 
 
 
+export function join(arr: string[], sepparator: string): string {
+    let result = "";
+    if (arr.length === 0) return result;
+
+    for(let i = 0; i < arr.length; i++) {
+	let is_last_chunk = i === arr.length - 1;
+	let chunk = arr[i];
+	
+	result += chunk;
+	if (!is_last_chunk) result += sepparator;
+    }
+
+    return result;
+}
+
+
 export function split(text: string, char: string) : string[] {
     let result: Array<string> = [];
     if (text.length === 0) return result;

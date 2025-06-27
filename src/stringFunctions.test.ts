@@ -1,6 +1,21 @@
-import { split } from './stringFunctions';
+import { split, join } from './stringFunctions';
 
-describe('String Functions', () => {
+describe('String join', () => {
+  describe('join by space', () => {
+    it('should join by empty space', () => {
+	expect(join(['join', 'by', 'space'], ' ')).toEqual('join by space');
+    });
+  });
+
+  describe('join by space', () => {
+    it('should join by ee', () => {
+	expect(join(['b', '', 'k', '', 'p', 'r n', '', 'd', 'd!!'], 'ee')).toEqual('beeeekeeeepeer neeeedeed!!');
+    });
+  });
+});
+
+
+describe('String split', () => {
   describe('split by space', () => {
     it('should split by empty space', () => {
 	expect(split('split by space', ' ')).toEqual(['split', 'by', 'space']);
@@ -14,7 +29,7 @@ describe('String Functions', () => {
   });
 
 
-  describe('split by letter e', () => {
+  describe('split by letter slash', () => {
     it('split by / slash', () => {
 	expect(split('/home/./..//Documents/', '/')).toEqual(['','home','.','..','','Documents','']);
     });
