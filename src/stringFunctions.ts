@@ -39,9 +39,10 @@ export function split(text: string, char: string) : string[] {
     let result: Array<string> = [];
     if (text.length === 0) return result;
 
-    // char array because strings are immutable in javascript
-    // having a string here uses more memmory since a new string
-    // is created each time we append a letter.
+    // Char array because strings are immutable in JavaScript.
+    // ========================================================
+    // Having a string here would use higher time complexity since a new string
+    // is created each time we append a char.
 
     // On the opposite hand having an array takes O(1) armonized time per char.
     // So split takes O(len(s)) time total.
