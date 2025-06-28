@@ -9,13 +9,8 @@ This project is set up to practice coding exercises in TypeScript.
 
 ### Usage
 
-1.  **Place your TypeScript files in the `src` directory:** For each exercise, create a new `.ts` file inside the `src` folder (e.g., `src/exercise1.ts`).
-2.  **Compile your TypeScript code:** To compile your TypeScript files into JavaScript, navigate to your project directory in your terminal and run:
+
+**Test your JavaScript code:
     ```bash
-    npx tsc
-    ```
-    This will compile all `.ts` files in `src` and output the corresponding `.js` files into the `dist` directory.
-3.  **Run your JavaScript code:** You can then run the compiled JavaScript files using Node.js:
-    ```bash
-    node dist/exercise1.js
+    npm test
     ```
