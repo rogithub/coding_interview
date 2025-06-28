@@ -32,6 +32,14 @@ export function join_reduce(arr: string[], sepparator: string) : string {
 	
 }
 
+export function join_reduce_str(arr: string[], sepparator: string) : string {    
+
+    return arr.reduce((curr, chunk, i) => {
+	// if it is not the end
+	return (i !== arr.length - 1) ? curr += chunk : curr += chunk + sepparator;
+    }, '');
+}
+
 export function join(arr: string[], sepparator: string): string {
     if (arr.length === 0) return '';
     // using array to store chars as per comment on the next function

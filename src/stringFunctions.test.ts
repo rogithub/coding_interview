@@ -1,4 +1,4 @@
-import { split, join, join_slower, join_reduce, index_of } from './stringFunctions';
+import { split, join, join_slower, join_reduce, join_reduce_str, index_of } from './stringFunctions';
 import { performanceMs, getRndmStrArr } from './performance';
 
 describe('Performance checks', () => {
@@ -13,12 +13,22 @@ describe('Performance checks', () => {
 	  const fn_slow = () => {
 	      join_slower(arr, ' ');
 	  }
+	  const fn_reduce = () => {
+	      join_reduce(arr, ' ');
+	  }
+	  const fn_reduce_str = () => {
+	      join_reduce_str(arr, ' ');
+	  }
 	  
 	  const fastMs = performanceMs(fn_fast);
 	  const slowMs = performanceMs(fn_slow);
+	  const reduceMs = performanceMs(fn_reduce);
+	  const reduceStrMs = performanceMs(fn_reduce_str);
 	  console.log("string length", arr.join('').length);
 	  console.log("fast", fastMs);
 	  console.log("slow", slowMs);
+	  console.log("reduce", reduceMs);
+	  console.log("reduce str", reduceStrMs);
 
 	  expect(slowMs).toBeGreaterThan(fastMs);
       });
