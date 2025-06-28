@@ -1,4 +1,4 @@
-## TypeScript Project Setup
+## TypeScript Node 
 
 This project is set up to practice coding exercises in TypeScript.
 
@@ -8,9 +8,8 @@ This project is set up to practice coding exercises in TypeScript.
 - `dist/`: This directory will contain the compiled JavaScript files.
 
 ### Usage
+Test your JavaScript code:
 
-
-**Test your JavaScript code:
-    ```bash
-    npm test
-    ```
+```bash
+npm test
+```
