@@ -48,6 +48,24 @@ export function join(arr: string[], sepparator: string): string {
     return result.join('');
 }
 
+// this function is less efficient than the above one that has result
+// as an array. We have here the result in string format to compare
+// performance
+export function join_slower(arr: string[], sepparator: string): string {
+    let result = "";
+    if (arr.length === 0) return result;
+
+    for(let i = 0; i < arr.length; i++) {	
+	let chunk = arr[i];
+	result += chunk;
+	
+	// cehck if it is last chunk
+	if (i !== arr.length - 1) result += sepparator;
+    }
+
+    return result;
+}
+
 
 export function split(text: string, char: string) : string[] {
     const result: string[] = [];

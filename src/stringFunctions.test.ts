@@ -1,4 +1,29 @@
-import { split, join, join_reduce, index_of } from './stringFunctions';
+import { split, join, join_slower, join_reduce, index_of } from './stringFunctions';
+import { performanceMs, getRndmStrArr } from './performance';
+
+describe('Performance checks', () => {
+  describe('comparing joins using array vs string as acummulator', () => {
+      it('processing ms comparison', () => {
+	  const arr = getRndmStrArr(10000, 10000);
+	  
+
+	  const fn_fast = () => {
+	      join(arr, ' ');
+	  };
+	  const fn_slow = () => {
+	      join_slower(arr, ' ');
+	  }
+	  
+	  const fastMs = performanceMs(fn_fast);
+	  const slowMs = performanceMs(fn_slow);
+	  console.log("string length", arr.join('').length);
+	  console.log("fast", fastMs);
+	  console.log("slow", slowMs);
+
+	  expect(slowMs).toBeGreaterThan(fastMs);
+      });
+  });
+});
 
 
 describe('String index_of', () => {
