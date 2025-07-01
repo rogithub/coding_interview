@@ -27,6 +27,15 @@ describe('Items in array doubled pointered', () => {
 	  expect(expected).toBe(false);
       });
   });
+
+  describe('different indices sum zero', () => {
+      it('should be false [-5, -3, -1, 0, 3, 4, 6]', () => {
+	  const arr = [-5, -3, -1, 0, 3, 4, 6];
+	  const expected = sumZero(arr);
+
+	  expect(expected).toBe(true);
+      });
+  });
 });
 
 

@@ -6,18 +6,19 @@
  * Do not use more than O(n) extra space.
  **/
 export const sumZero = (arr: number[]) : boolean => {
-    let j = arr.length - 1;
-    let i = 0;
-    while (j > 0) {
-	
-	// same as item in the opposite end
-	if ( i !== j && arr[i] + arr[j] === 0 ) return true;
+    let right = arr.length - 1;
+    let left = 0;
+    while (left < right) {
 
-	// same as its neighbor item
-	if ( arr[i] + arr[i + 1] === 0 || arr[j] + arr[j - 1] === 0 ) return true;
+	if (arr[left] + arr[right] === 0) return true;
+
+	if (arr[left] + arr[right] > 0) {
+	    right--;
+	} else {
+	    left++;
+	}
 	
-	j--;
-	i++;
+	
     }
     
     return false;
