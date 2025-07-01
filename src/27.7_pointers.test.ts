@@ -1,4 +1,4 @@
-import { sumZero } from './pointers';
+import { sumZero } from './27.7_pointers';
 
 describe('Items in array doubled pointered', () => {
   describe('different indices sum zero', () => {
