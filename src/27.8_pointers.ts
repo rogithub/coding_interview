@@ -41,6 +41,5 @@ export const toOneSorted = (
     }
   }
 
-  //console.dir(res);
   return res;
 };

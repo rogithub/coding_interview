@@ -8,6 +8,8 @@
  **/
 export const sortValleyShaped = (arr: number[]): number[] => {
     const res: number[] = [];
+    if (arr.length === 0) res;
+
     // [8, 4, 2, 6]
     // [2, 4, 6, 8]
     let r = arr.length - 1;
@@ -18,10 +20,10 @@ export const sortValleyShaped = (arr: number[]): number[] => {
         l = c;
         r = c + 1;        
     } else {
-        let c = (arr.length / 2) + 1;
+        let c = (arr.length - 1) / 2;
         l = c - 1;
         r = c + 1;
-        res.push(c); // min val
+        res.push(arr[c]); // min val
     }
 
 
@@ -34,7 +36,7 @@ export const sortValleyShaped = (arr: number[]): number[] => {
                 res.push(arr[l]);                
                 l--;
             }
-            continue; 
+            continue;
         }
 
         if (l > -1) {
@@ -44,9 +46,13 @@ export const sortValleyShaped = (arr: number[]): number[] => {
 
         if (r < arr.length) {
             res.push(arr[r]);
-            l++;  
+            r++;  
         }       
     }
-  
+
+    console.log(arr);
+    console.log(res);
+    
+
     return res;
 };
