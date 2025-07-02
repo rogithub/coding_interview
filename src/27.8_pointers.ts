@@ -20,21 +20,18 @@ export const toOneSorted = (
   // 0 1 2 3 4 5
   let candidates: number[];
 
-  while (true) {
-    candidates = [];
+  while (i1 < arr1.length || i2 < arr2.length || i3 < arr3.length) {
+    let min = Infinity;
+
     if (i1 < arr1.length) {
-      candidates.push(arr1[i1]);
+      min = Math.min(min, arr1[i1]);
     }
     if (i2 < arr2.length) {
-      candidates.push(arr2[i2]);
+      min = Math.min(min, arr2[i2]);
     }
     if (i3 < arr3.length) {
-      candidates.push(arr3[i3]);
+      min = Math.min(min, arr3[i3]);
     }
-
-    if (candidates.length === 0) return res;
-
-    let min = Math.min(...candidates);
 
     if (min === arr1[i1]) i1++;
     if (min === arr2[i2]) i2++;
