@@ -32,11 +32,18 @@ describe("should be one sorted array", () => {
       expect(expected).toEqual([]);
     });
 
-    it("should work for repeated elements", () => {
+    it("should work for repeated odd elements", () => {
       const arr: number[] = [8,4,4,-1,0,3,3,6,7];
       const expected = sortValleyShaped(arr);
 
       expect(expected).toEqual([-1, 0, 3, 3, 4, 4, 6, 7, 8]);
+    });
+
+    it("should work for repeated even elements", () => {
+      const arr: number[] = [4,3,3,3,3,5];
+      const expected = sortValleyShaped(arr);
+
+      expect(expected).toEqual([3,3,3,3,4,5]);
     });
 
   });

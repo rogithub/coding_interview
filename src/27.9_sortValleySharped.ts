@@ -18,12 +18,12 @@ export const sortValleyShaped = (arr: number[]): number[] => {
     if (arr.length % 2 === 0) {
         let c = arr.length / 2;
         l = c;
-        r = c + 1;        
+        r = c + 1;
+        
     } else {
         let c = (arr.length - 1) / 2;
+        r = c; // set center to the right, we know it is at least this length
         l = c - 1;
-        r = c + 1;
-        res.push(arr[c]); // min val
     }
 
 
@@ -49,10 +49,6 @@ export const sortValleyShaped = (arr: number[]): number[] => {
             r++;  
         }       
     }
-
-    console.log(arr);
-    console.log(res);
     
-
     return res;
 };
