@@ -19,7 +19,6 @@ export const toOneSorted = (
   let i1 = 0;
   let i2 = 0;
   let i3 = 0;
-  let i = 0;
 
   // 1 2
   // 3 3 4 5
@@ -44,12 +43,13 @@ export const toOneSorted = (
 
     if (min === arr1[i1]) i1++;
     if (min === arr2[i2]) i2++;
-    if (min === arr1[i3]) i3++;
+    if (min === arr3[i3]) i3++;
 
-    if (res.length === 0 || res[res.length - 1] < min) {
+    if (min != Infinity && (res.length === 0 || res[res.length - 1] < min)) {
       res.push(min);
     }
   } while (candidates.length > 0);
 
+  //console.dir(res);
   return res;
 };
