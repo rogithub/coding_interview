@@ -9,13 +9,6 @@ export const toOneSorted = (
 ): number[] => {
   const res: number[] = [];
 
-  if (
-    arr1.length === arr2.length &&
-    arr1.length === arr3.length &&
-    arr1.length === 0
-  )
-    return res;
-
   let i1 = 0;
   let i2 = 0;
   let i3 = 0;
@@ -27,7 +20,7 @@ export const toOneSorted = (
   // 0 1 2 3 4 5
   let candidates: number[];
 
-  do {
+  while (true) {
     candidates = [];
     if (i1 < arr1.length) {
       candidates.push(arr1[i1]);
@@ -39,16 +32,18 @@ export const toOneSorted = (
       candidates.push(arr3[i3]);
     }
 
+    if (candidates.length === 0) return res;
+
     let min = Math.min(...candidates);
 
     if (min === arr1[i1]) i1++;
     if (min === arr2[i2]) i2++;
     if (min === arr3[i3]) i3++;
 
-    if (min != Infinity && (res.length === 0 || res[res.length - 1] < min)) {
+    if (res.length === 0 || res[res.length - 1] < min) {
       res.push(min);
     }
-  } while (candidates.length > 0);
+  }
 
   //console.dir(res);
   return res;
