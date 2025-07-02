@@ -18,7 +18,6 @@ export const toOneSorted = (
   // 0 1 2 2 2
 
   // 0 1 2 3 4 5
-  let candidates: number[];
 
   while (i1 < arr1.length || i2 < arr2.length || i3 < arr3.length) {
     let min = Infinity;
