@@ -18,44 +18,29 @@ export const numbersNotInArr = (
     return res;
   }
 
-  // find starting point
-  let foundL, foundR = false;
-  let l = 0;
-  let r = arr.length - 1;
-  for(let i = 0; i < arr.length; i++)
-  {
-      if (arr[l] < low) {
-        l++;
-      } else {
-        foundL = true;
-      }
-      if (arr[r] > high) {
-        r--;
-      }else{
-        foundR = true;
-      }
+  let i = 0;
+  let value = 0;
+  let inside = false;
+  let lastAdded = low;
+  while(value < high) {
+    value = arr[i];
+    inside = value >= low && value <= high;
 
-      if (foundL && foundR) break;
-  }
-
-  //   *                <-i 
-  // 9,10,11,12,13
-  // i=10     left=2
-  //     *                  <-l            
-  // 6,9,12,15,18, L1 R2  bounds [9 - 13] res 10,11,12,13
-  let left = l;
-  for(let i = low; i <= high; i++) {
-    if (arr[left] === i) {
-      left++;      
+    if (!inside) {
+      i++;
       continue;
+    }        
+    
+    if (value > lastAdded) {
+      for (let j = value + 1; j < lastAdded; j++) {
+        res.push(j);
+      }
     }
+    lastAdded = res[res.length -1]
 
-    res.push(i);
-
+    i++;
   }
 
-
-  //console.log(`starting points ${arr}, L${l} R${r}  bounds [${low} - ${high}] res ${res}`);
-
+  console.log(`${arr} - ${res}`)
   return res;
 };
