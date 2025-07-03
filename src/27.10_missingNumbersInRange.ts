@@ -38,12 +38,24 @@ export const numbersNotInArr = (
       if (foundL && foundR) break;
   }
 
+  //   *                <-i 
+  // 9,10,11,12,13
+  // i=10     left=2
+  //     *                  <-l            
+  // 6,9,12,15,18, L1 R2  bounds [9 - 13] res 10,11,12,13
+  let left = l;
   for(let i = low; i <= high; i++) {
-    
+    if (arr[left] === i) {
+      left++;      
+      continue;
+    }
+
+    res.push(i);
+
   }
 
 
-  console.log(`starting points ${arr}, L${l} R${r}  bounds [${low} - ${high}]`);
+  //console.log(`starting points ${arr}, L${l} R${r}  bounds [${low} - ${high}] res ${res}`);
 
   return res;
 };
