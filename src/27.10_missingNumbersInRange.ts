@@ -18,29 +18,31 @@ export const numbersNotInArr = (
     return res;
   }
 
-  let i = 0;
-  let value = 0;
-  let inside = false;
-  let lastAdded = low;
-  while(value < high) {
-    value = arr[i];
-    inside = value >= low && value <= high;
-
-    if (!inside) {
+  let i = 0; // array index
+  let current = low;
+  while(current <= high) {
+    if (arr[i] < current) {
+      if (current > low && current !== high) { 
+        res.push(current);
+        current++;
+      }
       i++;
       continue;
-    }        
-    
-    if (value > lastAdded) {
-      for (let j = value + 1; j < lastAdded; j++) {
-        res.push(j);
-      }
     }
-    lastAdded = res[res.length -1]
 
-    i++;
+    if (arr[i] === current)
+    {
+      current++;
+      continue;
+    }
+
+    if (arr[i] > current) {
+      res.push(current);
+      current++;
+    }
+    
   }
 
-  console.log(`${arr} - ${res}`)
+  // console.log(`${arr} - ${res} *** [ ${low} - ${high}]`)
   return res;
 };

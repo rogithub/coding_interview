@@ -9,6 +9,7 @@ describe("should find items that are not inside a range", () => {
 
       expect(expected).toEqual([10, 11, 13]);
     });
+    
 
     it("array empty", () => {
       const arr: number[] = [];
@@ -17,6 +18,7 @@ describe("should find items that are not inside a range", () => {
 
       expect(expected).toEqual([9]);
     });
+    
 
     it("result empty", () => {
       const arr: number[] = [6,7,8,9];
@@ -25,6 +27,7 @@ describe("should find items that are not inside a range", () => {
 
       expect(expected).toEqual([]);
     });
+
   });
 
 });
