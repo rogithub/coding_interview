@@ -10,13 +10,7 @@ export const numbersNotInArr = (
 ): number[] => {
   const res: number[] = [];
   
-  if (arr.length === 0) {
-    for(let i = low; i <= high; i++)
-    {
-      res.push(i);
-    }
-    return res;
-  }
+  
 
   let i = 0; // array index
   let current = low;
