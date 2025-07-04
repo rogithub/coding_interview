@@ -21,24 +21,17 @@ export const numbersNotInArr = (
   let i = 0; // array index
   let current = low;
   while(current <= high) {
-    if (arr[i] < current) {
-      if (current > low && current !== high) { 
-        res.push(current);
-        current++;
-      }
-      i++;
-      continue;
-    }
-
-    if (arr[i] === current)
+    if (arr[i] > current || i >= arr.length)
     {
-      current++;
-      continue;
-    }
-
-    if (arr[i] > current) {
       res.push(current);
       current++;
+    }else if( arr[i] < current)
+    {
+      i++;
+    } else {
+      // if both are the same
+      i++;
+      current++
     }
     
   }
