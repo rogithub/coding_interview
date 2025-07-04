@@ -8,9 +8,7 @@ export const numbersNotInArr = (
   low: number,
   high: number,
 ): number[] => {
-  const res: number[] = [];
-  
-  
+  const res: number[] = [];  
 
   let i = 0; // array index
   let current = low;
