@@ -25,7 +25,7 @@ export const numbersNotInArr = (
     {
       res.push(current);
       current++;
-    }else if( arr[i] < current)
+    } else if ( arr[i] < current)
     {
       i++;
     } else {
