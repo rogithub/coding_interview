@@ -23,3 +23,13 @@
  * arr2 = [[3,3],[4,7]]
  * output = [[3,3],[4,4],[5,7]]
  */
+
+export const intervalIntersection = (arr1: number[][], arr2: number[][]) : number[][] => {
+    const result: number[][] = [];
+    let i = 0;
+    let j = 0;
+
+
+    return result;
+}
+    
